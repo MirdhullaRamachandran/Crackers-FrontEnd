@@ -1,0 +1,27 @@
+.marquee-header{
+    background-color: black;
+    color:white;
+}
+
+.navbar{
+    border-radius: 4px;
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    background-color: #e35013;
+}
+
+.navbar-nav a{
+    display: block;
+    color:#ffffff;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 17px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.pad{
+    padding:0px 26px 0px 26px;
+}
