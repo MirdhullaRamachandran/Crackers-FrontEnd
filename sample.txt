@@ -1,0 +1,103 @@
+import React, { useEffect, useState } from 'react'
+import NavBar from '../../components/NavBar/NavBar'
+import itemLists from './HomeItemLists'
+import './Home.css'
+
+export default function Home() {
+    let cartitm = localStorage.getItem('cartitems') ? JSON.parse(localStorage.getItem('cartitems')) : itemLists
+    const [selectedItems, setSelectedItems] = useState(cartitm);
+    // const [tot, setTot] = useState(0);
+
+
+    const handleAddToCart = (quantity, index) => {
+        selectedItems?.map(p => {
+            if (p.id === index) {
+                p.quantity = quantity;
+            }
+        })
+
+        // const newData = [...itemLists, quantity]
+        console.log(selectedItems); 
+        // newData[index].quantity*item.price;
+        // const total = item.price * quantity;
+        // console.log(item,quantity)
+        setSelectedItems(selectedItems);
+    }
+
+    useEffect(() => {
+
+        localStorage.setItem('cartitems', JSON.stringify(selectedItems));
+
+    }, [selectedItems, handleAddToCart])
+    return (
+        <>
+            <section id='nav-section'>
+                <NavBar></NavBar>
+            </section>
+
+            <section id='products-lists'>
+                <div className='container'>
+                    <div className='row d-flex'>
+                        <div className='col-lg-4 col-md-7'><h3>Product List</h3></div>
+                    </div>
+                </div>
+
+                <div className='container'>
+                    <div id='top_section' className='table-responsive sticky-top xs-margin-top-20px'>
+                        <div className='row'></div>
+                        <table cellPadding='0' cellSpacing='0' style={{ margin: 'auto' }}>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Total Products :</strong></td>
+                                    <td><strong>Overall Total :</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-lg-12'>
+                            <div className='table-responsive'>
+                                <table cellPadding='0' cellSpacing='0' className='pricelist_table pricelist_products'>
+                                    <thead>
+                                        <tr className='tr-row'>
+                                            <th>Image</th>
+                                            <th>Product</th>
+                                            <th align='text-center'>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr className='cart__total' style={{ backgroundColor: '#F83700', color: '#FFF', margin: 0, padding: 0 }}>
+                                            <td colSpan='5'>
+                                                <h5>SOUND CRACKERS</h5>
+                                            </td>
+                                        </tr>
+                                        {selectedItems?.map((item, index) => {
+                                            return (
+                                                <tr>
+                                                    <td key={index} className='text-center' width='5%'>
+                                                        <img src={item.img} width='50px' ></img>
+                                                    </td>
+                                                    <td>{item.name}</td>
+                                                    <td>Rs {item.price}</td>
+                                                    <td>
+                                                        <input type='number' name='quantity' className='form-control' min='1' onChange={(e) => handleAddToCart(e.target.value, item.id)} value={item?.quantity}></input>
+                                                    </td>
+                                                    <td>
+                                                        <input type='text' name='total' className='form-control' value={item.quantity ? +item.quantity * item.price : 0} />
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    )
+}

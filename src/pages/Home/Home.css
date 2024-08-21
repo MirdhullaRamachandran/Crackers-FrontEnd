@@ -1,0 +1,29 @@
+#top_section{
+    background-color: #F83700;
+    color: #FFF;
+    z-index: 1;
+}
+
+.xs-margin-top-20px{
+    margin-top: 20px;
+}
+
+table{
+    border: 1px solid #E6E6E6;
+    width: 100%;
+}
+
+td{
+    border: 1px solid #E6E6E6;
+    text-align: center;
+}
+
+.tr-row{
+    background-color:#F83700;
+    color:#FFF
+}
+
+th{
+    padding: 8px;
+    border: 1px solid #E6E6E6;
+}
