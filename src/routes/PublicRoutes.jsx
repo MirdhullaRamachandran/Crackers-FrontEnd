@@ -5,6 +5,9 @@ import PriceList from '../pages/PriceList/PriceList'
 import Contact from '../pages/Contact/Contact'
 import Products from '../pages/Products/Products'
 import Home from '../pages/Home/Home'
+import SampleTable from '../pages/SampleTable'
+import CrackersModal from '../components/Modal/CrackersModal'
+import Admin from '../pages/Admin/Admin'
 
 export default function PublicRoutes() {
   return (
@@ -14,6 +17,10 @@ export default function PublicRoutes() {
         <Route path="/pricelist" exact element={<PriceList/>}></Route>
         <Route path="/contact" exact element={<Contact/>}></Route>
         <Route path="/products" exact element={<Products/>}></Route>
+
+        <Route path="/sam" exact element={<SampleTable/>}></Route>
+        <Route path="/admin" exact element={<Admin/>}></Route>
+
     </Routes>
   )
 }

@@ -1,29 +1,47 @@
-#top_section{
+#top_section {
     background-color: #F83700;
     color: #FFF;
     z-index: 1;
 }
 
-.xs-margin-top-20px{
+.xs-margin-top-20px {
     margin-top: 20px;
 }
 
-table{
+table {
     border: 1px solid #E6E6E6;
     width: 100%;
 }
 
-td{
+td {
     border: 1px solid #E6E6E6;
     text-align: center;
 }
 
-.tr-row{
-    background-color:#F83700;
-    color:#FFF
+.tr-row {
+    background-color: #F83700;
+    color: #FFF
 }
 
-th{
+th {
     padding: 8px;
     border: 1px solid #E6E6E6;
+}
+
+.alert-width {
+    width: 100%;
+}
+
+.field-width {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .field-width {
+        width: 30%
+    }
+
+    .alert-width {
+        width: 30%;
+    }
 }
