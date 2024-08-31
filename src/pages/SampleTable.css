@@ -18,3 +18,7 @@ th,td{
     font-weight: normal;
     text-align: center;
 }
+
+.pd{
+    padding:6px 6px 6px 6px;
+}

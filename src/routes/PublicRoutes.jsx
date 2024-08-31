@@ -8,6 +8,7 @@ import Home from '../pages/Home/Home'
 import SampleTable from '../pages/SampleTable'
 import CrackersModal from '../components/Modal/CrackersModal'
 import Admin from '../pages/Admin/Admin'
+import EstimateForm from '../pages/Estimate/EstimateForm'
 
 export default function PublicRoutes() {
   return (
@@ -18,7 +19,7 @@ export default function PublicRoutes() {
         <Route path="/contact" exact element={<Contact/>}></Route>
         <Route path="/products" exact element={<Products/>}></Route>
 
-        <Route path="/sam" exact element={<SampleTable/>}></Route>
+        <Route path="/preview" exact element={<EstimateForm/>}></Route>
         <Route path="/admin" exact element={<Admin/>}></Route>
 
     </Routes>
