@@ -15,7 +15,7 @@ import Footer from '../../components/NavBar/Footer/Footer'
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-12'>
-                            <h3 className='about-h3'> Welcome to Crackers Sakthi Fireworks</h3>
+                            <h3 className='about-h3'> Welcome to Thangathai Fireworks</h3>
                             <p><b>EXCLUSIVE STORE</b></p>
                             <p>We have started store for selling fireworks name Sakthi Fireworks. We provide variety of firecrackers including single and multi-sound crackers, sparklers, ground chakkars, flower pots, twinkling stars, pencils, fancy rockets, aerial and fancy fireworks, fancy whistling varieties, amorces, chorsa garlands, atom crackerss, ukkada and electric crackers. We are specialists in fireworks gift boxes and we have variety of gift boxes ranging from Rs.250 to Rs.2500. We introduce new crackers and packages every year for our beloved customers. Check our Sakthi Fireworks online shopping cart to buy crackers online in hassle-free.</p>
                             <h3 className='about-h3'><b>WHAT WE DO</b></h3>

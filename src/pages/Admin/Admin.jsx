@@ -4,7 +4,6 @@ import Footer from '../../components/NavBar/Footer/Footer';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import Resizer from 'react-image-file-resizer'; // Import for image resizing
-import { axiosconfig } from '../../components/constant';
 
 export default function Admin() {
     const [selectedImage, setSelectedImage] = useState(null); // State to store the selected image
@@ -16,19 +15,20 @@ export default function Admin() {
     } = useForm();
 
     const handleData = (data) => {
-        const { name, price } = data;
+        const { name, price, category } = data;
 
         if (selectedImage) {
-            uploadData(name, price, selectedImage);
+            uploadData(name, price, category, selectedImage);
         } else {
             alert('Please select an image before submitting.');
         }
     };
 
-    const uploadData = (name, price, image) => {
+    const uploadData = (name, price, category, image) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('price', price);
+        formData.append('category', category);
         formData.append('image', image);
 
         axios.post('http://localhost:5000/api/crackers', formData, {
@@ -99,6 +99,26 @@ export default function Admin() {
                                         <label htmlFor="price" className="col-form-label">Price:</label>
                                         <input type="number" className="form-control" id="price" {...register('price', { required: true })} />
                                         {errors.price && <span className="text-danger">This field is required</span>}
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label htmlFor="category" className="col-form-label">Category:</label>
+                                        <select className="form-control" id="category" {...register('category', { required: true })}>
+                                            <option value="">Select Category</option>
+                                            <option value="Single Sound Crackers">Sound Crackers</option>
+                                            <option value="Ground Crackers">Ground Crackers</option>
+                                            <option value="Bombs">Bombs</option>
+                                            <option value="Flowerpots">Flowerpots</option>
+                                            <option value="Fancy Fountains">Fancy Fountains</option>
+                                            <option value="Twinkling Star">Twinkling Star</option>
+                                            <option value="Multiple Color shots">Multiple Color shots</option>
+                                            <option value="Others">Others</option>
+                                            <option value="Gift Boxes">Gift Boxes</option>
+
+
+
+                                        </select>
+                                        {errors.category && <span className="text-danger">This field is required</span>}
                                     </div>
 
                                     <div className="mb-3">

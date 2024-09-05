@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/NavBar/NavBar'
-import pricelistpdf from '../../assets/sakthifireworks price list.pdf'
+import pricelistpdf from '../../assets/thangathai.pdf'
 import './PriceList.css'
 import Footer from '../../components/NavBar/Footer/Footer'
 

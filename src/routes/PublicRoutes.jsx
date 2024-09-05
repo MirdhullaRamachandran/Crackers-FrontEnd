@@ -21,7 +21,7 @@ export default function PublicRoutes() {
 
         <Route path="/preview" exact element={<EstimateForm/>}></Route>
         <Route path="/admin" exact element={<Admin/>}></Route>
-
+        <Route path="/sam" exact element={<SampleTable/>}></Route>
     </Routes>
   )
 }
