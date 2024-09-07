@@ -208,7 +208,6 @@ export default function Home() {
                                         {renderCategory('Others')}
                                         {renderCategory('Gift Boxes')}
 
-
                                         {/* New row for overall total */}
                                         <tr>
                                             <td colSpan='4' style={{ textAlign: 'right', fontSize: '16px', color: '#17a3b8', fontWeight: 'bold', padding: '10px' }}>
@@ -366,7 +365,7 @@ export default function Home() {
                         <i className="fas fa-phone-alt"></i>
                     </a>
                     <div className="phone-tooltip" style={{ color: 'black' }}>
-                        For more details, call: <span style={{ color: 'white' }}>9043338930, 8190827346</span>
+                        For more details, call: <span style={{ color: 'white' }}>9092346104, 8190827346</span>
                     </div>
                 </div>
             </div>

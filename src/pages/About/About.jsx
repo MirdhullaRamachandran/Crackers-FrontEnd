@@ -1,6 +1,7 @@
 import React from 'react'
 import './About.css'
 import NavBar from '../../components/NavBar/NavBar'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../../components/NavBar/Footer/Footer'
  
  export default function About() {
@@ -17,7 +18,7 @@ import Footer from '../../components/NavBar/Footer/Footer'
                         <div className='col-lg-12'>
                             <h3 className='about-h3'> Welcome to Thangathai Fireworks</h3>
                             <p><b>EXCLUSIVE STORE</b></p>
-                            <p>We have started store for selling fireworks name Sakthi Fireworks. We provide variety of firecrackers including single and multi-sound crackers, sparklers, ground chakkars, flower pots, twinkling stars, pencils, fancy rockets, aerial and fancy fireworks, fancy whistling varieties, amorces, chorsa garlands, atom crackerss, ukkada and electric crackers. We are specialists in fireworks gift boxes and we have variety of gift boxes ranging from Rs.250 to Rs.2500. We introduce new crackers and packages every year for our beloved customers. Check our Sakthi Fireworks online shopping cart to buy crackers online in hassle-free.</p>
+                            <p>We have started store for selling fireworks name Thangathaai Fireworks. We provide variety of firecrackers including single and multi-sound crackers, sparklers, ground chakkars, flower pots, twinkling stars, pencils, fancy rockets, aerial and fancy fireworks, fancy whistling varieties, amorces, chorsa garlands, atom crackerss, ukkada and electric crackers. We are specialists in fireworks gift boxes and we have variety of gift boxes ranging from Rs.250 to Rs.2500. We introduce new crackers and packages every year for our beloved customers. Check our Thangathaai Fireworks online shopping cart to buy crackers online in hassle-free.</p>
                             <h3 className='about-h3'><b>WHAT WE DO</b></h3>
                             <p>It’s pride to introduce ourselves ONLINE STORE TO SELL CRACKERS ONLINE.</p>
                             <p>This is an outcome of the experience and knowledge we share in the field of selling crackers. We are a wholesale trader of Multi brand fire crackers in SIVAKASI. We are in the field of selling crackers since 2005. We have our own exclusive showroom in SIVAKASI.</p>
@@ -34,6 +35,20 @@ import Footer from '../../components/NavBar/Footer/Footer'
                     </div>
                 </div>
             </section>
+
+            <div className="sticky-sidebar">
+                <a href="https://wa.me/8190827346?text=Hello, I have a question about how to place an Order?" target="_blank" rel="noopener noreferrer" className="whatsapp-button">
+                    <i className="fab fa-whatsapp"></i>
+                </a>
+                <div className="callus-button">
+                    <a href="tel:yourphonenumber" className="phone-icon">
+                        <i className="fas fa-phone-alt"></i>
+                    </a>
+                    <div className="phone-tooltip" style={{ color: 'black' }}>
+                        For more details, call: <span style={{ color: 'white' }}>9092346104, 8190827346</span>
+                    </div>
+                </div>
+            </div>
 
             <section id='footer-section'>
                 <Footer></Footer>

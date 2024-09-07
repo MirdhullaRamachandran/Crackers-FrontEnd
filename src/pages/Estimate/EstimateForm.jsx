@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './EstimateForm.css';
+import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/NavBar/Footer/Footer';
 
 export default function EstimateForm() {
     const [orderData, setOrderData] = useState(null);
@@ -31,6 +33,10 @@ export default function EstimateForm() {
 
     return (
         <>
+            <section id='nav-section'>
+                <NavBar></NavBar>
+            </section>
+
             <section className='about spad'>
                 <div className='container'>
                     <div className='row'>
@@ -51,7 +57,7 @@ export default function EstimateForm() {
                                                     <tr>
                                                         <th colSpan='7' className='table-th'>
                                                             <div style={{ display: 'table', width: '100%' }}>
-                                                                <div style={{ display: 'flex',justifyContent:'space-around' }}>
+                                                                <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                                                     {/* <div className='enquiryno'>Enquiry No: 2024ENQ2</div> */}
                                                                     <div className='estimate'>ESTIMATE</div>
                                                                     <div className='currentdate'>Date: {formattedDate}</div>
@@ -150,6 +156,10 @@ export default function EstimateForm() {
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section id='footer-section'>
+                <Footer></Footer>
             </section>
         </>
     );
