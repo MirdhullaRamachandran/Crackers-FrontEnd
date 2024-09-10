@@ -39,3 +39,15 @@
     margin-right: 20px;
     height: auto;
 }
+
+.promotional-info {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.promo-text {
+    font-size: 16px;
+    color: #17a2b8;
+    font-weight: bold;
+}

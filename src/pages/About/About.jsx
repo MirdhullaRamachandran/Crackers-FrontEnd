@@ -37,7 +37,7 @@ import Footer from '../../components/NavBar/Footer/Footer'
             </section>
 
             <div className="sticky-sidebar">
-                <a href="https://wa.me/8190827346?text=Hello, I have a question about how to place an Order?" target="_blank" rel="noopener noreferrer" className="whatsapp-button">
+                <a href="https://wa.me/9092346104?text=Hello, I have a question about how to place an Order?" target="_blank" rel="noopener noreferrer" className="whatsapp-button">
                     <i className="fab fa-whatsapp"></i>
                 </a>
                 <div className="callus-button">

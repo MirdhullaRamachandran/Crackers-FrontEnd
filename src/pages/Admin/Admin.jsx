@@ -112,11 +112,16 @@ export default function Admin() {
                                             <option value="Fancy Fountains">Fancy Fountains</option>
                                             <option value="Twinkling Star">Twinkling Star</option>
                                             <option value="Multiple Color shots">Multiple Color shots</option>
+                                            <option value="Loose Crackers">Loose Crackers</option>
+                                            <option value="Rockets">Rockets</option>
+                                            <option value="Ariel Fancy">Ariel Fancy</option>
+                                            <option value="Sparklers">Sparklers</option>
+                                            <option value="Special Sparklers">Special Sparklers</option>
                                             <option value="Others">Others</option>
+                                            <option value="Color Matches-NET RATE">Color Matches-NET RATE</option>
+                                            <option value="Deepavali Gun-NET RATE">Deepavali Gun-NET RATE</option>
+                                            <option value="Sky Lanterns-NET RATE">Sky Lanterns-NET RATE</option>
                                             <option value="Gift Boxes">Gift Boxes</option>
-
-
-
                                         </select>
                                         {errors.category && <span className="text-danger">This field is required</span>}
                                     </div>

@@ -200,27 +200,27 @@ export default function Home() {
                                         {renderCategory('Single Sound Crackers')}
                                         {renderCategory('Ground Crackers')}
                                         {renderCategory('Bombs')}
-                                        {/* {renderCategory('Fancy Chakkars')} */}
                                         {renderCategory('Flowerpots')}
                                         {renderCategory('Fancy Fountains')}
                                         {renderCategory('Twinkling Star')}   
-                                        {renderCategory('Multiple Color shots')}   
+                                        {renderCategory('Multiple Color shots')}  
+                                        {renderCategory('Loose Crackers')}   
+                                        {renderCategory('Rockets')}   
+                                        {renderCategory('Ariel Fancy')}
+                                        {renderCategory('Sparklers')}
+                                        {renderCategory('Special Sparklers')}
                                         {renderCategory('Others')}
+                                        {renderCategory('Color Matches-NET RATE')}
+                                        {renderCategory('Deepavali Gun-NET RATE')}
+                                        {renderCategory('Sky Lanterns-NET RATE')}
                                         {renderCategory('Gift Boxes')}
 
-                                        {/* New row for overall total */}
                                         <tr>
                                             <td colSpan='4' style={{ textAlign: 'right', fontSize: '16px', color: '#17a3b8', fontWeight: 'bold', padding: '10px' }}>
                                                 Overall Total
                                             </td>
                                             <td style={{ textAlign: 'start', padding: '10px' }}>
                                                 {calculateOverallTotal()}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan='5' className='text-center' style={{ color: '#17a2b8' }}>
-                                                <strong>Buy 3000 Shots: Get 25 Shots Free!</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <strong>Buy 5000 Shots: Get 30 Shots Free!</strong>
                                             </td>
                                         </tr>
 
@@ -357,7 +357,7 @@ export default function Home() {
             )}
 
             <div className="sticky-sidebar">
-                <a href="https://wa.me/8190827346?text=Hello, I have a question about how to place an Order?" target="_blank" rel="noopener noreferrer" className="whatsapp-button">
+                <a href="https://wa.me/9092346104?text=Hello, I have a question about how to place an Order?" target="_blank" rel="noopener noreferrer" className="whatsapp-button">
                     <i className="fab fa-whatsapp"></i>
                 </a>
                 <div className="callus-button">
@@ -365,7 +365,7 @@ export default function Home() {
                         <i className="fas fa-phone-alt"></i>
                     </a>
                     <div className="phone-tooltip" style={{ color: 'black' }}>
-                        For more details, call: <span style={{ color: 'white' }}>9092346104, 8190827346</span>
+                        Call: <span style={{ color: 'white' }}>8190827346</span>
                     </div>
                 </div>
             </div>

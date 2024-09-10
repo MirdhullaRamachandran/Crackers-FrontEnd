@@ -3,8 +3,10 @@ import axios from 'axios';
 import './EstimateForm.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/NavBar/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function EstimateForm() {
+    const navigate=useNavigate()
     const [orderData, setOrderData] = useState(null);
     const today = new Date();
 
@@ -29,6 +31,7 @@ export default function EstimateForm() {
             console.error('Error sending estimate:', error);
             alert('Failed to send estimate');
         }
+        navigate('/')
     };
 
     return (
