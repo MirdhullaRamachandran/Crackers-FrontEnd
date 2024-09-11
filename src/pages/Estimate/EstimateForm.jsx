@@ -75,7 +75,7 @@ export default function EstimateForm() {
                                                                     <div style={{ display: 'table-cell', textAlign: 'center' }}>
                                                                         <div style={{ display: 'table' }}>
                                                                             <div style={{ display: 'table-row' }}>
-                                                                                <div style={{ display: 'table-cell', textAlign: 'left', paddingLeft: '10px' }}>Mobile: 9043338930 / 8190827346&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                                                                <div style={{ display: 'table-cell', textAlign: 'left', paddingLeft: '10px' }}>Mobile: 9092346104 / 8190827346&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                                                                 <div style={{ display: 'table-cell', textAlign: 'right', paddingRight: '20px' }}>E-mail: thangathaaicrackers@gmail.com</div>
                                                                             </div>
                                                                         </div>

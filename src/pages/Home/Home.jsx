@@ -18,10 +18,11 @@ export default function Home() {
             .get('http://localhost:5000/api/getcrackers')
             .then((res) => {
                 if (res?.data) {
-                    setSelectedItems(res.data.data)
+                    setSelectedItems(res.data.data);
                 }
-            }).catch((err) => console.log(err));
-    }
+            })
+            .catch((err) => console.log(err));
+    };
 
     useEffect(() => {
         handleDataget();
@@ -31,8 +32,14 @@ export default function Home() {
         const updatedItems = selectedItems.map((item) => {
             if (item._id === id) {
                 const updatedQuantity = parseInt(quantity, 10);
-                const updatedTotal = updatedQuantity > 0 ? item.price * updatedQuantity : '';
-    
+
+                // Apply the discount if available
+                const discountedPrice = item.discount
+                    ? item.price - (item.price * item.discount / 100)
+                    : item.price;
+
+                const updatedTotal = updatedQuantity > 0 ? discountedPrice * updatedQuantity : '';
+
                 return {
                     ...item,
                     quantity: updatedQuantity >= 0 ? updatedQuantity : '',
@@ -41,13 +48,12 @@ export default function Home() {
             }
             return item;
         });
-    
+
         setSelectedItems(updatedItems);
     };
-        
 
     const calculateOverallTotal = () => {
-        return selectedItems?.reduce((acc, item) => acc + (item.total || 0), 0);
+        return selectedItems.reduce((acc, item) => acc + (item.total || 0), 0);
     };
 
     const calculateSelectedProductCount = () => {
@@ -64,20 +70,20 @@ export default function Home() {
             setOrderError('');
         }
 
-        let filterItems = [];
-
-        selectedItems?.filter(i => {
-            if (i.quantity > 0) {
-                let item = { productId: i._id, quantity: i.quantity, total: i.total, name: i.name, price: i.price };
-                filterItems.push(item);
-            }
-        });
+        let filterItems = selectedItems.filter(item => item.quantity > 0).map(item => ({
+            productId: item._id,
+            quantity: item.quantity,
+            total: item.total,
+            name: item.name,
+            price: item.price,
+            discount: item.discount // Include discount in the submitted data
+        }));
 
         let finalData = { ...data, overallTotal, orderItems: filterItems };
 
         localStorage.setItem('orderData', JSON.stringify(finalData));
 
-        let response = await axios.post('http://localhost:5000/api/userestim', finalData);
+        await axios.post('http://localhost:5000/api/userestim', finalData);
 
         window.location.href = '/preview';
     };
@@ -96,52 +102,55 @@ export default function Home() {
         return (
             <>
                 <tr className='category_row cart__total' style={{ backgroundColor: '#17a2b8', color: '#FFF', margin: 0, padding: 0 }}>
-                    <td colSpan='5'>
+                    <td colSpan='6'>
                         <h5 style={{ margin: 0, padding: 0 }}>{categoryName.toUpperCase()}</h5>
                     </td>
                 </tr>
                 {selectedItems
-    ?.filter(item => item.category === categoryName)
-    ?.map((item) => (
-        <tr className='product_row' key={item._id}>
-            <td className='product_image text-center' width='5%'>
-                <img
-                    src={item.imageUrl}
-                    width='50px'
-                    alt=''
-                    onClick={() => handleImageClick(item.imageUrl)}
-                    style={{ cursor: 'pointer' }}
-                />
-            </td>
-            <td id='2' className='product_name text-center'>{item.name}</td>
-            <td className='text-center' width='10%'>Rs
-                <span className='actual_price'> {item.price}</span>
-            </td>
-            <td className='quantity text-center pd' width='10%'>
-                <input
-                    type='number'
-                    name='quantity'
-                    min='1'
-                    className='form-control qty_box quantity_2'
-                    value={item.quantity || 0}
-                    onChange={(e) =>
-                        handleQuantityChange(item._id, e.target.value)
-                    }
-                ></input>
-            </td>
-            <td id='0' className='amount text-center pd' width='10%'>
-                <input
-                    type='text'
-                    name='amount'
-                    className='form-control'
-                    disabled
-                    style={{ paddingLeft: 0, paddingRight: '7px' }}
-                    value={item.total && item.total !== 0 ? ` ${item.total}` : 0}
-                ></input>
-            </td>
-        </tr>
-    ))}
-
+                    ?.filter(item => item.category === categoryName)
+                    ?.map((item) => (
+                        <tr className='product_row' key={item._id}>
+                            <td className='product_image text-center' width='5%'>
+                                <img
+                                    src={item.imageUrl}
+                                    width='50px'
+                                    alt=''
+                                    onClick={() => handleImageClick(item.imageUrl)}
+                                    style={{ cursor: 'pointer' }}
+                                />
+                            </td>
+                            <td id='2' className='product_name text-center'>{item.name}</td>
+                            <td className='text-center' width='10%'>Rs
+                                <span className='actual_price'> {item.price}</span>
+                            </td>
+                            {/* Discount Column */}
+                            <td className='text-center' width='10%'>
+                                {item.discount ? `${item.discount}%` : '0%'}
+                            </td>
+                            <td className='quantity text-center pd' width='10%'>
+                                <input
+                                    type='number'
+                                    name='quantity'
+                                    min='1'
+                                    className='form-control qty_box quantity_2'
+                                    value={item.quantity || 0}
+                                    onChange={(e) =>
+                                        handleQuantityChange(item._id, e.target.value)
+                                    }
+                                ></input>
+                            </td>
+                            <td id='0' className='amount text-center pd' width='10%'>
+                                <input
+                                    type='text'
+                                    name='amount'
+                                    className='form-control'
+                                    disabled
+                                    style={{ paddingLeft: 0, paddingRight: '7px' }}
+                                    value={item.total && item.total !== 0 ? ` ${item.total}` : 0}
+                                ></input>
+                            </td>
+                        </tr>
+                    ))}
             </>
         );
     };
@@ -151,7 +160,7 @@ export default function Home() {
             <section id='nav-section'>
                 <NavBar />
             </section>
-
+            
             <section id='products-lists'>
                 <div className='container'>
                     <div className='row d-flex'>
@@ -162,18 +171,16 @@ export default function Home() {
                 </div>
                 <div className='container'>
                     <div id='top_section' className='table-responsive sticky-top xs-margin-top-20px'>
-                        <div className='row'></div>
                         <table cellPadding='0' cellSpacing='0' style={{ margin: 'auto' }} className='table-styles'>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <strong>Total Products</strong>
-                                        <span className='product_count'>    {calculateSelectedProductCount()}</span>
+                                        <strong>Total Products </strong>
+                                        <span className='product_count'>{calculateSelectedProductCount()}</span>
                                     </td>
-
                                     <td>
-                                        <strong>Overall total</strong>
-                                        <span className='product_count'> {calculateOverallTotal()}</span>
+                                        <strong>Overall Total </strong>
+                                        <span className='product_count'>{calculateOverallTotal()}</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -187,36 +194,39 @@ export default function Home() {
                                     <thead>
                                         <tr style={{ backgroundColor: '#17a2b8', color: '#fff' }}>
                                             <th>Image</th>
-                                            <th className="product_name" style={{ display: "none" }}>Code</th>
                                             <th>Product</th>
-                                            <th className="medium_visiable" style={{ display: "none" }}>Content</th>
-                                            <th style={{ width: '10%' }}>Price</th>
-                                            <th style={{ display: "none" }}>Amount</th>
+                                            <th>Price</th>
+                                            <th>Discount</th> {/* Added Discount Column */}
                                             <th>Quantity</th>
                                             <th>Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {renderCategory('Single Sound Crackers')}
-                                        {renderCategory('Ground Crackers')}
-                                        {renderCategory('Bombs')}
+                                        {renderCategory('Ground Chakkars')}
+                                        {renderCategory('Fancy Chakkars')}
                                         {renderCategory('Flowerpots')}
                                         {renderCategory('Fancy Fountains')}
-                                        {renderCategory('Twinkling Star')}   
-                                        {renderCategory('Multiple Color shots')}  
-                                        {renderCategory('Loose Crackers')}   
-                                        {renderCategory('Rockets')}   
+                                        {renderCategory('Fancy & Novelties')}
+                                        {renderCategory('Bombs')}
+                                        {renderCategory('Loose Crackers')}
+                                        {renderCategory('Rockets')}
                                         {renderCategory('Ariel Fancy')}
+                                        {renderCategory('Multiple Color shots')}
                                         {renderCategory('Sparklers')}
                                         {renderCategory('Special Sparklers')}
-                                        {renderCategory('Others')}
-                                        {renderCategory('Color Matches-NET RATE')}
-                                        {renderCategory('Deepavali Gun-NET RATE')}
-                                        {renderCategory('Sky Lanterns-NET RATE')}
+                                        {renderCategory('Twinkling Star')}
+                                        {renderCategory('Candle')}
+                                        {renderCategory('Confetti')}
+                                        {renderCategory('Cartoons')}
+                                        {renderCategory('New Items')}
+                                        {renderCategory('Color Matches')}
+                                        {renderCategory('Deepavali Gun')}
+                                        {renderCategory('Sky Lanterns')}
                                         {renderCategory('Gift Boxes')}
 
                                         <tr>
-                                            <td colSpan='4' style={{ textAlign: 'right', fontSize: '16px', color: '#17a3b8', fontWeight: 'bold', padding: '10px' }}>
+                                            <td colSpan='5' style={{ textAlign: 'right', fontSize: '16px', color: '#17a3b8', fontWeight: 'bold', padding: '10px' }}>
                                                 Overall Total
                                             </td>
                                             <td style={{ textAlign: 'start', padding: '10px' }}>
@@ -226,7 +236,7 @@ export default function Home() {
 
                                         {calculateOverallTotal() < 3000 && (
                                             <tr>
-                                                <td colSpan='5' className='text-center text-danger'>
+                                                <td colSpan='6' className='text-center text-danger'>
                                                     <strong>The minimum order amount is Rs 3000.</strong>
                                                 </td>
                                             </tr>
@@ -361,7 +371,7 @@ export default function Home() {
                     <i className="fab fa-whatsapp"></i>
                 </a>
                 <div className="callus-button">
-                    <a href="tel:yourphonenumber" className="phone-icon">
+                    <a href="tel:8190827346" className="phone-icon">
                         <i className="fas fa-phone-alt"></i>
                     </a>
                     <div className="phone-tooltip" style={{ color: 'black' }}>

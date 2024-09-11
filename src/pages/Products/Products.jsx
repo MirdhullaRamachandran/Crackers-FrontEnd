@@ -70,7 +70,7 @@ export default function Products() {
                     <i className="fab fa-whatsapp"></i>
                 </a>
                 <div className="callus-button">
-                    <a href="tel:yourphonenumber" className="phone-icon">
+                    <a href="tel:8190827346" className="phone-icon">
                         <i className="fas fa-phone-alt"></i>
                     </a>
                     <div className="phone-tooltip" style={{ color: 'black' }}>
