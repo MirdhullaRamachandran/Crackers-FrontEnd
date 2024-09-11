@@ -9,7 +9,7 @@ export default function Products() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/getcrackers')
+        fetch('https://web.thangathaaicrackers.com/api/getcrackers')
             .then(response => response.json())
             .then(data => {
                 setProducts(data.data);

@@ -15,7 +15,7 @@ export default function Home() {
 
     const handleDataget = () => {
         axios
-            .get('http://localhost:5000/api/getcrackers')
+            .get('https://web.thangathaaicrackers.com/api/getcrackers')
             .then((res) => {
                 if (res?.data) {
                     setSelectedItems(res.data.data);
@@ -83,7 +83,7 @@ export default function Home() {
 
         localStorage.setItem('orderData', JSON.stringify(finalData));
 
-        await axios.post('http://localhost:5000/api/userestim', finalData);
+        await axios.post('https://web.thangathaaicrackers.com/api/userestim', finalData);
 
         window.location.href = '/preview';
     };

@@ -25,7 +25,7 @@ export default function EstimateForm() {
 
     const handleSubmit = async () => {
         try {
-            await axios.post('http://localhost:5000/send-estimate', { orderData });
+            await axios.post('https://web.thangathaaicrackers.com/send-estimate', { orderData });
             alert('Estimate sent successfully');
         } catch (error) {
             console.error('Error sending estimate:', error);

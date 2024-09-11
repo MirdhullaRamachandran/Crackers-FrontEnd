@@ -36,7 +36,7 @@ export default function Admin() {
         formData.append('image', image);
 
         // Post data to the backend
-        axios.post('http://localhost:5000/api/crackers', formData, {
+        axios.post('https://web.thangathaaicrackers.com/api/crackers', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
