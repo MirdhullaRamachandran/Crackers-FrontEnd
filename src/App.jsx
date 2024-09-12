@@ -1,5 +1,5 @@
 import React from 'react'
-import PublicRoutes from './routes/publicroutes'
+import PublicRoutes from './routes/PublicRoutes.jsx'
 
 export default function App() {
   return (
