@@ -101,7 +101,7 @@ export default function Home() {
     const renderCategory = (categoryName) => {
         return (
             <>
-                <tr className='category_row cart__total' style={{ backgroundColor: '#17a2b8', color: '#FFF', margin: 0, padding: 0 }}>
+                <tr className='category_row cart__total' style={{ backgroundColor: '#aab1ff', color: '#FFF', margin: 0, padding: 0 }}>
                     <td colSpan='6'>
                         <h5 style={{ margin: 0, padding: 0 }}>{categoryName.toUpperCase()}</h5>
                     </td>
@@ -192,7 +192,7 @@ export default function Home() {
                             <div className='shopping-cart-table table-responsive'>
                                 <table cellPadding='0' cellSpacing='0' id='example' className='pricelist-table pricelist-products table-styles'>
                                     <thead>
-                                        <tr style={{ backgroundColor: '#17a2b8', color: '#fff' }}>
+                                        <tr style={{ backgroundColor: '#eca1fe', color: '#fff' }}>
                                             <th>Image</th>
                                             <th>Product</th>
                                             <th>Price</th>
@@ -340,7 +340,7 @@ export default function Home() {
                             {errors.state && <div className="invalid-feedback">{errors.state.message}</div>}
                         </div>
 
-                        <button type="submit" className="btn btn-primary" style={{ width: '150px' }}>
+                        <button type="submit" className="btn" style={{ width: '150px',backgroundColor:'#aab1ff'}}>
                             Submit
                         </button>
                     </form>

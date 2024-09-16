@@ -1,5 +1,5 @@
 #top_section {
-    background-color: #17a2b8;
+    background-color: #eca1fe;
     color: #FFF;
     z-index: 1;
 }
@@ -63,7 +63,7 @@ th {
 }
 
 .callus-button {
-    background: #17a2b8; 
+    background: #86fdcc; 
     position: relative;
 }
 
@@ -87,7 +87,7 @@ th {
 }
 
 .callus-button .phone-icon {
-    color: white;
+    color: black;
     font-size: 24px;
 }
 

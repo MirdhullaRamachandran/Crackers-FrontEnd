@@ -7,7 +7,7 @@ export default function Footer() {
         <div className='footer-content'>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-lg-12 col-md-12 col-xs-12' style={{background:'#eeeeee'}}>
+                    <div className='col-lg-12 col-md-12 col-xs-12' style={{background:'#86fdcc'}}>
                     As per 2018 supreme court order, online sale of firecrackers are not permitted! We value our customers and at the same time, respect jurisdiction. We request you to add your products to the cart and submit the required crackers through the enquiry button.
                     <br></br>
                     We will contact you within 24 hrs and confirm the order through WhatsApp or phone call. Please add and submit your enquiries and enjoy your Diwali with Thangathaai Fireworks Sivakasi.
