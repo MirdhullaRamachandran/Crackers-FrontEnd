@@ -12,6 +12,8 @@ export default function Home() {
     const [orderError, setOrderError] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [filteredItems, setFilteredItems] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleDataget = () => {
         axios
@@ -19,6 +21,7 @@ export default function Home() {
             .then((res) => {
                 if (res?.data) {
                     setSelectedItems(res.data.data);
+                    setFilteredItems(res.data.data);
                 }
             })
             .catch((err) => console.log(err));
@@ -27,6 +30,19 @@ export default function Home() {
     useEffect(() => {
         handleDataget();
     }, []);
+
+    useEffect(() => {
+        if (searchTerm) {
+            const filtered = selectedItems.filter(item =>
+                item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.category.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredItems(filtered);
+        } else {
+            setFilteredItems(selectedItems);
+        }
+    }, [searchTerm, selectedItems]);
+
 
     const handleQuantityChange = (id, quantity) => {
         const updatedItems = selectedItems.map((item) => {
@@ -106,7 +122,7 @@ export default function Home() {
                         <h5 style={{ margin: 0, padding: 0 }}>{categoryName.toUpperCase()}</h5>
                     </td>
                 </tr>
-                {selectedItems
+                {filteredItems
                     ?.filter(item => item.category === categoryName)
                     ?.map((item) => (
                         <tr className='product_row' key={item._id}>
@@ -160,13 +176,23 @@ export default function Home() {
             <section id='nav-section'>
                 <NavBar />
             </section>
-            
+
             <section id='products-lists'>
                 <div className='container'>
                     <div className='row d-flex'>
                         <div className='col-lg-4 col-md-7'>
                             <h3>Product List</h3>
                         </div>
+                    </div>
+                    <div className='col-lg-4 col-md-5'>
+                        {/* Search Input */}
+                        <input
+                            type='text'
+                            placeholder='Search by product or category...'
+                            className='form-control'
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className='container'>
@@ -340,7 +366,7 @@ export default function Home() {
                             {errors.state && <div className="invalid-feedback">{errors.state.message}</div>}
                         </div>
 
-                        <button type="submit" className="btn" style={{ width: '150px',backgroundColor:'#aab1ff'}}>
+                        <button type="submit" className="btn" style={{ width: '150px', backgroundColor: '#aab1ff' }}>
                             Submit
                         </button>
                     </form>
