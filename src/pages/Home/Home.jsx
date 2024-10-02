@@ -222,7 +222,7 @@ export default function Home() {
                                             <th>Image</th>
                                             <th>Product</th>
                                             <th>Price</th>
-                                            <th>Discount</th> {/* Added Discount Column */}
+                                            <th>Discount</th>
                                             <th>Quantity</th>
                                             <th>Total</th>
                                         </tr>
