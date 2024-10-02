@@ -15,7 +15,7 @@ export default function PublicRoutes() {
     <Routes>
         <Route path="/" exact element={<Home/>}></Route>
         <Route path="/about" exact element={<About/>}></Route>
-        <Route path="/pricelist" exact element={<PriceList/>}></Route>
+        {/* <Route path="/pricelist" exact element={<PriceList/>}></Route> */}
         <Route path="/contact" exact element={<Contact/>}></Route>
         <Route path="/products" exact element={<Products/>}></Route>
 
