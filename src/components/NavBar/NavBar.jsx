@@ -18,8 +18,8 @@ export default function NavBar() {
                                 <div className='promotional-info d-flex align-items-center justify-content-center mb-3'>
                                     <div className='promo-text text-center'>
                                         <strong style={{color:'red'}}>80% Discount</strong><br />
-                                        <strong>Buy for 3000Rs : Get 25 Shots Free!</strong><br />
-                                        <strong>Buy for 5000Rs : Get 30 Shots Free!</strong>
+                                        {/* <strong>Buy for 3000Rs : Get 25 Shots Free!</strong><br />
+                                        <strong>Buy for 5000Rs : Get 30 Shots Free!</strong> */}
                                     </div>
                                 </div>
                                 <div className='navbar navbar-expand-lg navbar-dark'>
