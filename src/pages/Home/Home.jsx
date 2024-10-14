@@ -260,13 +260,11 @@ export default function Home() {
                                             </td>
                                         </tr>
 
-                                        {/* {calculateOverallTotal() < 3000 && (
                                             <tr>
                                                 <td colSpan='6' className='text-center text-danger'>
                                                     <strong>The minimum order amount is Rs 3000.</strong>
                                                 </td>
                                             </tr>
-                                        )} */}
                                     </tbody>
                                 </table>
                             </div>
