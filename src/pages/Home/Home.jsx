@@ -79,12 +79,12 @@ export default function Home() {
     const onSubmit = async (data) => {
         const overallTotal = calculateOverallTotal();
 
-        if (overallTotal < 3000) {
-            setOrderError('The minimum order amount is Rs 3000.');
-            return;
-        } else {
-            setOrderError('');
-        }
+        // if (overallTotal < 3000) {
+        //     setOrderError('The minimum order amount is Rs 3000.');
+        //     return;
+        // } else {
+        //     setOrderError('');
+        // }
 
         let filterItems = selectedItems.filter(item => item.quantity > 0).map(item => ({
             productId: item._id,
@@ -260,13 +260,13 @@ export default function Home() {
                                             </td>
                                         </tr>
 
-                                        {calculateOverallTotal() < 3000 && (
+                                        {/* {calculateOverallTotal() < 3000 && (
                                             <tr>
                                                 <td colSpan='6' className='text-center text-danger'>
                                                     <strong>The minimum order amount is Rs 3000.</strong>
                                                 </td>
                                             </tr>
-                                        )}
+                                        )} */}
                                     </tbody>
                                 </table>
                             </div>
